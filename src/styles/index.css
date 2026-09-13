@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-space: #020408;
+    --accent-cyan: #00e5ff;
+    --accent-blue: #38bdf8;
+    --accent-orange: #ff6e3a;
+    --border-glow: rgba(0, 229, 255, 0.2);
+    --font-display: 'Space Grotesk', 'Inter', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+  }
+
+  body {
+    background-color: #020408;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #020408; }
+  ::-webkit-scrollbar-thumb { background: #0f2040; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #00e5ff; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLASSMORPHIC COMPONENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+.glass-panel {
+  background: rgba(6, 12, 26, 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel-glow {
+  background: rgba(5, 14, 32, 0.72);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  box-shadow:
+    0 0 30px -5px rgba(0, 229, 255, 0.15),
+    inset 0 0 18px rgba(0, 229, 255, 0.04);
+}
+
+.glass-card-interactive {
+  background: rgba(5, 12, 26, 0.58);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-interactive:hover {
+  background: rgba(8, 20, 44, 0.82);
+  border-color: rgba(0, 229, 255, 0.38);
+  box-shadow:
+    0 14px 38px -5px rgba(0, 229, 255, 0.18),
+    0 0 18px rgba(0, 229, 255, 0.08);
+  transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOW TEXT UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+.glow-text-cyan {
+  text-shadow: 0 0 18px rgba(0, 229, 255, 0.65), 0 0 35px rgba(0, 229, 255, 0.3);
+}
+.glow-text-blue {
+  text-shadow: 0 0 22px rgba(56, 189, 248, 0.62);
+}
+.glow-text-orange {
+  text-shadow: 0 0 20px rgba(255, 110, 58, 0.7);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TELEMETRY UI UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+.telemetry-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.telemetry-radar {
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.07) 0%, transparent 70%);
+}
+
+@keyframes telemetry-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+.animate-pulse-telemetry {
+  animation: telemetry-pulse 3s infinite ease-in-out;
+}
+
+/* Scanning line */
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+.scanline-effect {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.8), transparent);
+  animation: scanline 8s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SPACE BACKGROUND — Premium Antellay OS
+   Combines: Real Earth photo (antellay.space layout)
+             + WHNXT.TODAY chromatic stars (canvas)
+             + Nebula clouds, shooting stars, parallax
+   ═══════════════════════════════════════════════════════════════ */
+
+.space-bg-root {
+  --mx: 50%;
+  --my: 40%;
+}
+
+/* ── Earth Image — Positioned like antellay.space ──
+   The photo is positioned so the massive curved Earth horizon
+   sweeps across the center-right, exactly like antellay.space:
+   - Top-right: Stars + satellite in black space
+   - Center: Golden sunrise burst on the limb
+   - Bottom-right: Dark night-side of Earth with city lights
+   ──────────────────────────────────────────────── */
+.space-bg-earth {
+  position: absolute;
+  /* Earth fills the full viewport — hero photo is perfectly centered */
+  right: -5%;
+  top: -6%;
+  bottom: -6%;
+  left: -5%;
+  background:
+    url('/assets/earth_hero_bg.jpg') center 35% / cover no-repeat;
+  z-index: 0;
+  will-change: transform;
+  transform-origin: center center;
+  animation: earthDrift 18s ease-in-out infinite alternate;
+  transition: transform 0.08s ease-out;
+}
+
+/* Gradient overlays for text legibility without killing the Earth beauty */
+.space-bg-earth::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    rgba(2, 4, 8, 0.82) 0%,
+    rgba(2, 4, 8, 0.5) 20%,
+    rgba(2, 4, 8, 0.15) 42%,
+    rgba(2, 4, 8, 0.0) 60%
+  );
+}
+
+/* Bottom fade so the Earth blends into page content */
+.space-bg-earth::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 160px;
+  background: linear-gradient(transparent, #020408);
+}
+
+/* Slow cinematic Earth drift (like antellay.space heroShrink) */
+@keyframes earthDrift {
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to   { transform: scale(1.0)  translate3d(-30px, 18px, 0); }
+}
+
+/* ── Sunrise Lens Flare — Sits on the Earth's golden limb ──
+   In the photo the golden sunrise is at ~lower-left of the Earth,
+   so we position the flare to overlay that area ── */
+.space-sunrise-flare {
+  position: absolute;
+  /* Sunrise is lower-left on the image — ~35% from left, 55% from top */
+  top: 42%;
+  left: 22%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 195, 60,  0.48) 0%,
+    rgba(255, 140, 20,  0.28) 12%,
+    rgba(255, 100, 0,   0.14) 26%,
+    rgba(255,  70, 0,   0.05) 45%,
+    transparent               65%
+  );
+  mix-blend-mode: screen;
+  z-index: 2;
+  pointer-events: none;
+  animation: flarePulse 4.5s ease-in-out infinite alternate;
+}
+
+/* Secondary cold-cyan lens flare halo */
+.space-sunrise-flare::after {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 229, 255, 0.12) 0%,
+    rgba(56, 189, 248, 0.06) 40%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  animation: flarePulse 4s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes flarePulse {
+  0%   { opacity: 0.85; transform: scale(0.97); }
+  100% { opacity: 1.0;  transform: scale(1.04); }
+}
+
+/* ── Left dark fade for text legibility ── */
+.space-left-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 4, 8, 0.75) 0%,
+    rgba(2, 4, 8, 0.4)  30%,
+    transparent          60%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Bottom gradient fade ── */
+.space-bg-bottom-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(transparent, #020408);
+  z-index: 3;
+}
+
+/* ── Nebula Cloud Layers ── */
+.space-nebula {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.space-nebula-1 {
+  top: -10%;
+  left: -5%;
+  width: 60vw;
+  height: 60vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(49, 46, 129, 0.14) 0%,
+    rgba(88, 28, 135, 0.08) 45%,
+    transparent 70%
+  );
+  animation: nebulaDrift 22s ease-in-out infinite alternate;
+}
+
+.space-nebula-2 {
+  bottom: 10%;
+  left: 10%;
+  width: 45vw;
+  height: 45vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(14, 116, 144, 0.12) 0%,
+    rgba(0, 229, 255, 0.05) 50%,
+    transparent 70%
+  );
+  animation: nebulaDrift 28s ease-in-out infinite alternate-reverse;
+}
+
+.space-nebula-3 {
+  top: 30%;
+  right: 5%;
+  width: 35vw;
+  height: 35vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(30, 58, 138, 0.1) 0%,
+    transparent 70%
+  );
+  animation: nebulaDrift 35s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaDrift {
+  0%   { transform: scale(1.0) translate(0, 0); opacity: 0.7; }
+  50%  { opacity: 1.0; }
+  100% { transform: scale(1.12) translate(15px, -10px); opacity: 0.6; }
+}
+
+/* ── Mouse Follow Radial Glow ── */
+.space-bg-mouse-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 400px at var(--mx) var(--my),
+    rgba(255, 110, 58, 0.1),
+    rgba(131, 205, 251, 0.07) 50%,
+    transparent 100%
+  );
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  pointer-events: none;
+}
+.space-bg-root.mouse-active .space-bg-mouse-glow {
+  opacity: 1;
+}
+
+/* ── CSS Shooting Stars (supplement canvas meteors) ── */
+.space-shooting-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shooting-star {
+  position: absolute;
+  height: 1.5px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: rotate(-30deg);
+  animation: shootStar 7s ease-in-out infinite;
+}
+
+/* White-cyan meteor */
+.shooting-star.s1 {
+  width: 140px;
+  top: 7%;  left: 14%;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.9) 45%, rgba(0,229,255,0.6));
+  animation-delay: 0s; animation-duration: 6s;
+}
+.shooting-star.s2 {
+  width: 110px;
+  top: 12%; left: 58%;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(200,220,255,0.85) 50%, rgba(56,189,248,0.5));
+  animation-delay: 2.2s; animation-duration: 7.5s;
+}
+.shooting-star.s3 {
+  width: 160px;
+  top: 4%;  left: 38%;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.95) 40%, rgba(0,229,255,0.7));
+  animation-delay: 4.5s; animation-duration: 5.5s;
+}
+/* Gold-amber meteors (rarer, like whnxt.today) */
+.shooting-star.s4 {
+  width: 100px;
+  top: 20%; left: 72%;
+  background: linear-gradient(90deg, rgba(255,180,0,0), rgba(255,210,100,0.8) 50%, rgba(255,255,200,0.6));
+  animation-delay: 6.2s; animation-duration: 8s;
+}
+.shooting-star.s5 {
+  width: 130px;
+  top: 3%;  left: 26%;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.9) 40%, rgba(129,140,248,0.65));
+  animation-delay: 9s; animation-duration: 6.5s;
+}
+
+@keyframes shootStar {
+  0%   { opacity: 0; transform: rotate(-30deg) translateX(0); }
+  4%   { opacity: 1; }
+  14%  { opacity: 0; transform: rotate(-30deg) translateX(380px); }
+  100% { opacity: 0; transform: rotate(-30deg) translateX(380px); }
+}
+
+/* ── Orbital Indicator Dots (left edge — antellay.space) ── */
+.space-orbit-dots {
+  position: absolute;
+  left: 10px;
+  top: 155px;
+  width: 11px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.space-orbit-dots::before {
+  content: '';
+  position: absolute;
+  top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(#73808e, #ed713d, #73808e);
+  opacity: 0.55;
+}
+
+.space-orbit-dots i {
+  position: relative;
+  width: 6px; height: 6px;
+  border: 1px solid #c7d2de;
+  border-radius: 50%;
+  background: #03060b;
+}
+
+.space-orbit-dots i.active {
+  width: 8px; height: 8px;
+  border-color: #ed713d;
+  background: #ed713d;
+  box-shadow: 0 0 15px rgba(255, 111, 58, 0.8);
+  animation: pulseDot 1.9s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.7; transform: scale(0.92); }
+  50%       { opacity: 1;   transform: scale(1.22); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .space-bg-earth {
+    right: -15%;
+    left: -5%;
+  }
+  .space-sunrise-flare {
+    left: 30%;
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .space-bg-earth {
+    right: -25%;
+    left: -15%;
+    top: -5%;
+    bottom: 0;
+  }
+  .space-sunrise-flare {
+    top: 12%;
+    left: 20%;
+    width: 300px;
+    height: 300px;
+  }
+  .space-orbit-dots { display: none; }
+  .shooting-star { width: 80px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-bg-earth { animation: none; }
+  .space-sunrise-flare { animation: none; }
+  .shooting-star { animation: none; opacity: 0; }
+  .space-nebula { animation: none; }
+}
