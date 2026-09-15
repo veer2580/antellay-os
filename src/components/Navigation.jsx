@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Lock, LogOut, User } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isAuthenticated, user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,22 +15,12 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { label: 'HOME', to: '/' },
-    { label: 'ABOUT', to: '/about' },
-    { label: 'VISION', to: '/vision' },
-    { label: 'MISSION', to: '/mission' },
-    { label: 'ARCHITECTURE', to: '/architecture' },
-    { label: 'FUTUHR', to: '/futuhr' },
-    { label: 'CONTACT', to: '/contact' },
-  ];
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#020408]/90 backdrop-blur-md border-b border-cyan-500/20 py-3 shadow-lg'
-          : 'bg-transparent py-5'
+          ? 'bg-[#020408]/95 backdrop-blur-md border-b border-cyan-500/20 py-3 shadow-lg'
+          : 'bg-[#020408]/60 backdrop-blur-sm py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -53,85 +44,39 @@ export default function Navigation() {
           </div>
         </Link>
 
-        {/* Desktop NavLinks */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.label}
-              to={link.to}
-              className={({ isActive }) =>
-                `font-display tracking-[0.2em] text-xs transition-all duration-200 relative py-1 ${
-                  isActive
-                    ? 'text-cyan-300 font-bold after:w-full after:bg-cyan-400 shadow-sm'
-                    : 'text-slate-300 hover:text-cyan-300 after:w-0 hover:after:w-full after:bg-cyan-400'
-                } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:transition-all after:duration-300`
-              }
-            >
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        {/* Right Status Badge & Connect CTA */}
-        <div className="hidden lg:flex items-center gap-4">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-950/20 text-emerald-400 text-[10px] font-mono tracking-wider">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>ORBITAL_ACTIVE</span>
-          </div>
-
-          <Link
-            to="/contact"
-            className="group relative inline-flex items-center gap-2 px-4 py-1.5 rounded border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-500/20 text-cyan-300 text-xs font-display tracking-widest transition-all duration-300 hover:border-cyan-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.3)]"
-          >
-            <span>CONNECT</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </Link>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-300 hover:text-cyan-400 focus:outline-none"
-          aria-label="Toggle Navigation"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#040814]/95 border-b border-cyan-500/25 backdrop-blur-2xl px-6 py-6 transition-all">
-          <nav className="flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.label}
-                to={link.to}
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `font-display tracking-[0.2em] text-sm py-2.5 border-b border-slate-800/60 transition-colors ${
-                    isActive ? 'text-cyan-300 font-bold pl-2 border-cyan-500/40' : 'text-slate-200 hover:text-cyan-300'
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-            <div className="pt-3 flex items-center justify-between">
-              <span className="font-mono text-xs text-emerald-400 flex items-center gap-1.5">
+        {/* Right Section: Auth Status / Login Action */}
+        <div className="flex items-center gap-3">
+          {isAuthenticated ? (
+            <div className="flex items-center gap-3">
+              {/* User Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 font-mono text-xs tracking-wider">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                ORBITAL_ACTIVE
-              </span>
-              <Link
-                to="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-1.5 rounded border border-cyan-500/40 bg-cyan-950/40 text-cyan-300 text-xs font-display tracking-widest"
+                <User className="w-3.5 h-3.5" />
+                <span className="font-bold">{user?.name || 'VEER'}</span>
+                <span className="text-[10px] text-emerald-400/70 uppercase hidden sm:inline">(CLEARANCE LVL 4)</span>
+              </div>
+
+              {/* Logout / Re-lock Button */}
+              <button
+                onClick={logout}
+                title="Lock confidential pages"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-red-500/30 bg-red-950/30 hover:bg-red-950/60 text-red-300 hover:text-white text-xs font-mono tracking-wider uppercase transition-all duration-200"
               >
-                CONNECT
-              </Link>
+                <LogOut className="w-3.5 h-3.5" />
+                <span>LOCK</span>
+              </button>
             </div>
-          </nav>
+          ) : (
+            <Link
+              to="/login"
+              className="group relative inline-flex items-center gap-2 px-5 py-2 rounded border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-500/20 text-cyan-300 hover:text-white text-xs font-display tracking-[0.25em] uppercase transition-all duration-300 hover:border-cyan-300 hover:shadow-[0_0_25px_rgba(0,229,255,0.35)]"
+            >
+              <Lock className="w-3.5 h-3.5 text-cyan-400 group-hover:text-white transition-colors" />
+              <span>LOGIN</span>
+            </Link>
+          )}
         </div>
-      )}
+      </div>
     </header>
   );
 }

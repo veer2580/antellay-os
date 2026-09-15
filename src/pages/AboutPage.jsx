@@ -126,6 +126,12 @@ export default function AboutPage() {
         </p>
       </div>
 
+      {/* Hero Image */}
+      <div className="relative w-full mb-20 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
+        <img src="/assets/about_hero.jpg" alt="Antellay OS — Autonomous drone fleet over smart city" className="w-full h-auto object-cover" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent pointer-events-none" />
+      </div>
+
       {/* SECTION: ONE OS. FOUR DOMAINS. */}
       <section className="mb-28">
         <div className="text-center mb-12">

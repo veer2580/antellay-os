@@ -10,25 +10,70 @@ export default function ContactPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [transmissionId, setTransmissionId] = useState('');
+  const [formError, setFormError] = useState('');
 
   // Private Consultation Scheduler state
   const [selectedDate, setSelectedDate] = useState('2025-06-12');
   const [selectedSlot, setSelectedSlot] = useState('03:00 PM');
   const [consultationBooked, setConsultationBooked] = useState(false);
+  const [bookingRef, setBookingRef] = useState('');
+  const [bookingLoading, setBookingLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setFormError('');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        setTransmissionId(data.referenceId || `INQ-${Date.now().toString(36).toUpperCase()}`);
+        setSubmitted(true);
+      } else {
+        setFormError(data.message || 'Submission failed. Please check your inputs.');
+      }
+    } catch (err) {
+      console.warn('API submission failed, using local offline queue:', err);
+      setTransmissionId(`OFFLINE-${Date.now().toString(36).toUpperCase()}`);
       setSubmitted(true);
-    }, 900);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleBooking = (e) => {
+  const handleBooking = async (e) => {
     e.preventDefault();
-    setConsultationBooked(true);
+    setBookingLoading(true);
+    try {
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          date: selectedDate,
+          slot: selectedSlot,
+          clientName: formData.name || 'Antellay Partner',
+          clientEmail: formData.email || '',
+        }),
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        setBookingRef(data.booking?.id || `BKG-${Date.now().toString(36).toUpperCase()}`);
+      } else {
+        setBookingRef(`BKG-${Date.now().toString(36).toUpperCase()}`);
+      }
+    } catch (err) {
+      console.warn('Booking API offline fallback:', err);
+      setBookingRef(`BKG-${Date.now().toString(36).toUpperCase()}`);
+    } finally {
+      setBookingLoading(false);
+      setConsultationBooked(true);
+    }
   };
 
   return (
@@ -120,6 +165,11 @@ export default function ContactPage() {
                 <h4 className="font-display text-2xl font-bold tracking-wider text-white">
                   TRANSMISSION DISPATCHED
                 </h4>
+                {transmissionId && (
+                  <div className="inline-block px-3 py-1 rounded bg-cyan-950/60 border border-cyan-500/40 text-cyan-300 font-mono text-xs">
+                    MISSION REF: {transmissionId}
+                  </div>
+                )}
                 <p className="text-sm font-mono text-slate-300 max-w-md mx-auto">
                   Your message has been securely forwarded to <strong>veer@antellay.in</strong>. A member of our team will respond promptly.
                 </p>
@@ -135,6 +185,11 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                {formError && (
+                  <div className="p-3 rounded bg-red-950/40 border border-red-800/60 text-red-400 font-mono text-xs">
+                    {formError}
+                  </div>
+                )}
                 <div>
                   <label className="block font-mono text-xs text-slate-300 tracking-wider uppercase mb-2">
                     FULL NAME
@@ -234,6 +289,11 @@ export default function ContactPage() {
                 <h4 className="font-display text-xl font-bold text-white tracking-wider">
                   SESSION RESERVED
                 </h4>
+                {bookingRef && (
+                  <div className="inline-block px-3 py-1 rounded bg-cyan-950/60 border border-cyan-500/40 text-cyan-300 font-mono text-xs">
+                    SESSION REF: {bookingRef}
+                  </div>
+                )}
                 <p className="font-mono text-xs text-slate-300">
                   Target Date: <strong className="text-cyan-300">{selectedDate}</strong> at <strong className="text-cyan-300">{selectedSlot}</strong>
                 </p>

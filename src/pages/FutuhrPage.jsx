@@ -33,6 +33,12 @@ export default function FutuhrPage() {
         </p>
       </div>
 
+      {/* Hero Image */}
+      <div className="relative w-full mb-20 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
+        <img src="/assets/futuhr_hero.jpg" alt="Antellay OS — Predictive intelligence neural network" className="w-full h-auto object-cover" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent pointer-events-none" />
+      </div>
+
       {/* SECTION: 4 CONCEPTUAL PANELS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-28">
         {/* Panel 1 */}

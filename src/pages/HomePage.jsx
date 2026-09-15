@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ArrowRight, Shield, Layers, Eye, Cpu, Compass, Globe, Sparkles } from 'lucide-react';
+import { ChevronRight, ArrowRight, Shield, Layers, Eye, Cpu, Compass, Globe, Sparkles, Lock, Unlock } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export default function HomePage() {
+  const { isAuthenticated } = useAuth();
+
   const narrativePillars = [
     { title: 'SIGNALS.', desc: 'Multi-domain dimensional telemetry emission.' },
     { title: 'PATTERNS.', desc: 'Structural convergence across disparate machines.' },
@@ -19,6 +22,7 @@ export default function HomePage() {
       link: '/about',
       badge: 'DOMAINS & DATA PIPELINE',
       icon: Compass,
+      locked: true,
       gradient: 'from-cyan-500/20 via-blue-900/10 to-transparent',
     },
     {
@@ -28,6 +32,7 @@ export default function HomePage() {
       link: '/vision',
       badge: 'FOUNDER & PURPOSE',
       icon: Eye,
+      locked: true,
       gradient: 'from-blue-500/20 via-indigo-900/10 to-transparent',
     },
     {
@@ -37,6 +42,7 @@ export default function HomePage() {
       link: '/mission',
       badge: '7-STAGE MISSION FLOW',
       icon: Shield,
+      locked: true,
       gradient: 'from-emerald-500/20 via-cyan-900/10 to-transparent',
     },
     {
@@ -46,6 +52,7 @@ export default function HomePage() {
       link: '/architecture',
       badge: 'ENTERPRISE STACK',
       icon: Layers,
+      locked: true,
       gradient: 'from-cyan-500/20 via-sky-900/10 to-transparent',
     },
     {
@@ -55,6 +62,7 @@ export default function HomePage() {
       link: '/futuhr',
       badge: 'PREDICTIVE HUD',
       icon: Cpu,
+      locked: true,
       gradient: 'from-purple-500/20 via-cyan-900/10 to-transparent',
     },
     {
@@ -64,6 +72,7 @@ export default function HomePage() {
       link: '/contact',
       badge: 'COLLABORATE & BUILD',
       icon: Globe,
+      locked: false,
       gradient: 'from-cyan-500/20 via-blue-900/10 to-transparent',
     },
   ];
@@ -150,6 +159,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Featured Orbit Intelligence Visual Showcase Banner */}
+      <section className="relative z-10 max-w-6xl mx-auto px-4 pt-16">
+        <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 shadow-[0_0_50px_rgba(0,229,255,0.12)] group">
+          <img
+            src="/assets/contact_hero.jpg"
+            alt="Antellay OS — Global Orbital Intelligence & Space Communication Hub"
+            className="w-full h-[360px] sm:h-[460px] md:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-[#020408]/30 to-transparent pointer-events-none" />
+          <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <span className="font-mono text-[10px] sm:text-xs text-cyan-400 tracking-[0.3em] uppercase block mb-1">
+                AUTONOMOUS ORBITAL FABRIC
+              </span>
+              <h3 className="font-display text-lg sm:text-2xl font-bold tracking-wider text-white uppercase">
+                SPACE INTELLIGENCE & TELEMETRY RELAY
+              </h3>
+              <p className="font-sans text-xs sm:text-sm text-slate-300 max-w-lg mt-1 hidden sm:block">
+                Interconnecting planetary nodes, autonomous drone constellations, and edge robotics across 550km LEO orbits.
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-cyan-300 bg-cyan-950/80 border border-cyan-500/40 px-3.5 py-1.5 rounded-full backdrop-blur-md self-start sm:self-auto">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+              <span>LEO SATELLITE MESH • ACTIVE</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Gateway Portal Cards Section: Direct individual page access */}
       <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -168,11 +207,17 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {gatewaySections.map((sec) => {
             const IconComponent = sec.icon;
+            const isCardLocked = sec.locked && !isAuthenticated;
+
             return (
               <Link
                 key={sec.title}
                 to={sec.link}
-                className="group relative rounded-2xl border border-slate-800 bg-[#040816]/80 p-8 flex flex-col justify-between hover:border-cyan-400/60 hover:bg-[#061228] hover:shadow-[0_0_35px_rgba(0,229,255,0.2)] transition-all duration-300 overflow-hidden"
+                className={`group relative rounded-2xl border bg-[#040816]/80 p-8 flex flex-col justify-between hover:bg-[#061228] transition-all duration-300 overflow-hidden ${
+                  isCardLocked
+                    ? 'border-amber-500/30 hover:border-amber-400/60 hover:shadow-[0_0_35px_rgba(245,158,11,0.2)]'
+                    : 'border-slate-800 hover:border-cyan-400/60 hover:shadow-[0_0_35px_rgba(0,229,255,0.2)]'
+                }`}
               >
                 {/* Subtle gradient glow */}
                 <div className={`absolute -right-12 -top-12 w-44 h-44 rounded-full bg-gradient-to-br ${sec.gradient} blur-2xl group-hover:scale-125 transition-transform duration-500 pointer-events-none`} />
@@ -182,8 +227,12 @@ export default function HomePage() {
                     <span className="font-mono text-[10px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
                       {sec.badge}
                     </span>
-                    <div className="w-10 h-10 rounded-lg border border-cyan-500/30 bg-cyan-950/40 flex items-center justify-center text-cyan-400 group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] transition-all">
-                      <IconComponent className="w-5 h-5" />
+                    <div className={`w-10 h-10 rounded-lg border flex items-center justify-center transition-all ${
+                      isCardLocked
+                        ? 'border-amber-500/40 bg-amber-950/40 text-amber-400 group-hover:border-amber-300'
+                        : 'border-cyan-500/30 bg-cyan-950/40 text-cyan-400 group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(0,229,255,0.4)]'
+                    }`}>
+                      {isCardLocked ? <Lock className="w-5 h-5 text-amber-300" /> : <IconComponent className="w-5 h-5" />}
                     </div>
                   </div>
 
@@ -198,9 +247,21 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between font-display text-xs tracking-widest text-cyan-300 group-hover:text-white transition-colors">
-                  <span>ENTER SECTION</span>
-                  <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1.5 transition-transform" />
+                <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between font-display text-xs tracking-widest transition-colors">
+                  {isCardLocked ? (
+                    <>
+                      <span className="inline-flex items-center gap-1.5 text-amber-400 group-hover:text-amber-300">
+                        <Lock className="w-3.5 h-3.5" />
+                        <span>AUTHENTICATE TO UNLOCK</span>
+                      </span>
+                      <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1.5 transition-transform" />
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-cyan-300 group-hover:text-white">ENTER SECTION</span>
+                      <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1.5 transition-transform" />
+                    </>
+                  )}
                 </div>
               </Link>
             );

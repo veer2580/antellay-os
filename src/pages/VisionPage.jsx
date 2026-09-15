@@ -93,6 +93,12 @@ export default function VisionPage() {
         </p>
       </div>
 
+      {/* Hero Image */}
+      <div className="relative w-full mb-20 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
+        <img src="/assets/vision_hero.jpg" alt="Antellay OS — Global machine intelligence network" className="w-full h-auto object-cover" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent pointer-events-none" />
+      </div>
+
       {/* 3-Column Founder Feature */}
       <section className="mb-28 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-4 space-y-6">

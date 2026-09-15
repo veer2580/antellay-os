@@ -131,6 +131,12 @@ export default function MissionPage() {
         </div>
       </div>
 
+      {/* Hero Image */}
+      <div className="relative w-full mb-20 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
+        <img src="/assets/mission_hero.jpg" alt="Antellay OS — Mission control center" className="w-full h-auto object-cover" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent pointer-events-none" />
+      </div>
+
       {/* SECTION: TURNING FRAGMENTED SYSTEMS INTO ONE INTELLIGENT ECOSYSTEM */}
       <section className="mb-28 p-8 sm:p-12 rounded-2xl border border-cyan-500/25 bg-[#040816]/80 backdrop-blur-md text-center shadow-[0_0_40px_rgba(0,229,255,0.1)]">
         <h2 className="font-display text-2xl sm:text-4xl font-extrabold tracking-[0.18em] text-white uppercase mb-6">

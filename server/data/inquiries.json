@@ -1,0 +1,11 @@
+[
+  {
+    "id": "INQ-MU2P06RS",
+    "name": "Test User",
+    "email": "test@antellay.space",
+    "category": "PARTNERSHIP",
+    "message": "Testing the mission control contact system",
+    "status": "RECEIVED",
+    "createdAt": "2026-09-15T13:13:31.720Z"
+  }
+]
