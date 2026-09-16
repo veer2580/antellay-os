@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Lock } from 'lucide-react';
+import { Lock, FileText, Download } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Footer() {
@@ -13,6 +13,7 @@ export default function Footer() {
     { name: 'ARCHITECTURE', path: '/architecture', locked: true },
     { name: 'FUTUHR', path: '/futuhr', locked: true },
     { name: 'CONTACT', path: '/contact', locked: false },
+    { name: 'TERMS', path: '/terms', locked: false },
   ];
 
   return (
@@ -62,8 +63,29 @@ export default function Footer() {
           })}
         </nav>
 
-        {/* Legal & Direct Email */}
-        <div className="flex flex-col items-center md:items-end text-center md:text-right font-mono text-xs text-slate-300 space-y-2">
+        {/* Legal & Action Buttons */}
+        <div className="flex flex-col items-center md:items-end text-center md:text-right font-mono text-xs text-slate-300 space-y-2.5">
+          {/* Dedicated Unlocked Terms & Conditions Button */}
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2">
+            <Link
+              to="/terms"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-cyan-500/50 bg-cyan-950/60 hover:bg-cyan-900/50 text-cyan-300 hover:text-white hover:border-cyan-300 hover:shadow-[0_0_15px_rgba(0,229,255,0.35)] tracking-wider transition-all font-mono text-xs font-semibold group"
+            >
+              <FileText className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
+              <span>TERMS & CONDITIONS</span>
+            </Link>
+            <a
+              href="/terms-and-conditions.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open Official Terms PDF in new tab"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-slate-700/80 bg-[#020714] text-slate-300 hover:text-cyan-300 hover:border-cyan-500/50 transition-all text-xs"
+            >
+              <Download className="w-3 h-3 text-cyan-400" />
+              <span>PDF</span>
+            </a>
+          </div>
+
           <p className="text-slate-400">© 2026 Futuhr. All rights reserved.</p>
           <a
             href="mailto:veer@antellay.in"

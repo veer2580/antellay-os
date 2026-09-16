@@ -14,6 +14,7 @@ import MissionPage from './pages/MissionPage';
 import ArchitecturePage from './pages/ArchitecturePage';
 import FutuhrPage from './pages/FutuhrPage';
 import ContactPage from './pages/ContactPage';
+import TermsPage from './pages/TermsPage';
 import LoginPage from './pages/LoginPage';
 
 function AppLayout() {
@@ -42,9 +43,11 @@ function AppLayout() {
       {/* ── Page Content */}
       <main className="relative z-10 flex-grow pb-8 sm:pb-12">
         <Routes>
-          {/* Public Pages: Always clear & unblurred */}
+          {/* Public Pages: Always clear & unblurred (No lock gate) */}
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/terms-and-conditions" element={<TermsPage />} />
 
           {/* Protected Pages: Blurred and locked behind authentication gate */}
           <Route
