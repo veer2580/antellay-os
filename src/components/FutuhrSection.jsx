@@ -354,7 +354,19 @@ export default function FutuhrSection() {
         <div className="w-full flex flex-wrap items-center justify-between text-xs font-mono text-slate-500 pt-16 mt-12 border-t border-slate-900 gap-4">
           <span className="tracking-widest text-cyan-400">FUTUHR</span>
           <span>© ALL RIGHTS RESERVED.</span>
-          <span>A ANTELLAY LABS • A CELEBSO GROUP.</span>
+          <span>
+            A ANTELLAY LABS •{' '}
+            <a
+              href="https://celebso.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Celebso Group - Building the Future Through Technology & Innovation"
+              className="text-cyan-400 hover:text-cyan-200 hover:underline transition-colors font-semibold"
+            >
+              A CELEBSO GROUP
+            </a>
+            .
+          </span>
         </div>
       </div>
     </section>

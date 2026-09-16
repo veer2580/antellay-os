@@ -122,7 +122,16 @@ export default function HeroSection() {
         <div className="text-center font-sans text-xs text-slate-400 space-y-1">
           <p className="tracking-wider">© 2026 Futuhr. All rights reserved.</p>
           <p className="font-mono text-[11px] text-cyan-400/80 tracking-widest uppercase">
-            A ANTELLAY LABS • A Celebso Group
+            <span>A ANTELLAY LABS</span> •{' '}
+            <a
+              href="https://celebso.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Celebso Group - Building the Future Through Technology & Innovation"
+              className="text-cyan-400 hover:text-cyan-200 hover:underline transition-colors font-semibold"
+            >
+              A CELEBSO GROUP
+            </a>
           </p>
         </div>
       </div>

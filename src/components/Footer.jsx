@@ -40,7 +40,15 @@ export default function Footer() {
           <div className="flex items-center gap-2 mt-1.5 font-mono text-[10px] tracking-widest uppercase">
             <span className="text-cyan-400 font-semibold">A ANTELLAY LABS</span>
             <span className="text-slate-600">•</span>
-            <span className="text-slate-400">A CELEBSO GROUP</span>
+            <a
+              href="https://celebso.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Celebso Group - Building the Future Through Technology & Innovation"
+              className="text-cyan-400 font-semibold hover:text-cyan-200 hover:underline underline-offset-2 transition-all cursor-pointer"
+            >
+              A CELEBSO GROUP
+            </a>
           </div>
         </div>
 
