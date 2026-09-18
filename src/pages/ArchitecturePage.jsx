@@ -197,35 +197,35 @@ export default function ArchitecturePage() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="text-center max-w-4xl mx-auto mb-20">
-        <span className="font-mono text-xs sm:text-sm tracking-[0.35em] text-cyan-400 uppercase font-semibold border border-cyan-500/30 px-4 py-1 rounded-full bg-cyan-950/40 inline-block mb-4">
+      <div className="text-center max-w-4xl mx-auto mb-16">
+        <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] text-cyan-400 uppercase font-semibold border border-cyan-500/30 px-3.5 py-1 rounded-full bg-cyan-950/40 inline-block mb-3">
           SYSTEM ARCHITECTURE
         </span>
-        <h1 className="font-display text-4xl sm:text-6xl font-extrabold tracking-[0.18em] text-white uppercase mb-6 leading-tight">
+        <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-[0.18em] text-white uppercase mb-4 leading-tight">
           FROM MACHINES TO INTELLIGENCE.
         </h1>
-        <p className="font-display text-sm sm:text-base tracking-[0.3em] text-cyan-300 uppercase font-semibold">
+        <p className="font-display text-xs sm:text-sm tracking-[0.25em] text-cyan-300 uppercase font-semibold">
           IT WILL BE POWERED BY MILLIONS OF MACHINES WORKING TOGETHER.
         </p>
       </div>
 
       {/* Hero Image */}
-      <div className="relative w-full mb-20 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
+      <div className="relative w-full mb-16 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
         <img src="/assets/architecture_hero.jpg" alt="Antellay OS — System architecture blueprint" className="w-full h-auto object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* SECTION 01: 7-LAYER ARCHITECTURE STACK */}
-      <section className="mb-28">
-        <div className="flex items-baseline gap-4 mb-8">
-          <span className="font-mono text-sm text-cyan-400 font-bold tracking-widest px-2.5 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
+      <section className="mb-20">
+        <div className="flex items-baseline gap-3 mb-6">
+          <span className="font-mono text-xs text-cyan-400 font-bold tracking-widest px-2 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
             01
           </span>
           <div>
-            <span className="font-mono text-xs text-slate-400 uppercase tracking-widest block">
+            <span className="font-mono text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest block">
               ENTERPRISE OS STACK
             </span>
-            <h2 className="font-display text-2xl sm:text-4xl font-extrabold tracking-[0.18em] text-white uppercase">
+            <h2 className="font-display text-lg sm:text-xl md:text-2xl font-extrabold tracking-[0.18em] text-white uppercase">
               THE 7-LAYER INTELLIGENCE FRAMEWORK
             </h2>
           </div>
@@ -309,16 +309,16 @@ export default function ArchitecturePage() {
       </section>
 
       {/* SECTION 02: THE CORE INTELLIGENCE LOOP */}
-      <section className="mb-28">
-        <div className="flex items-baseline gap-4 mb-8">
-          <span className="font-mono text-sm text-cyan-400 font-bold tracking-widest px-2.5 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
+      <section className="mb-20">
+        <div className="flex items-baseline gap-3 mb-6">
+          <span className="font-mono text-xs text-cyan-400 font-bold tracking-widest px-2 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
             02
           </span>
           <div>
-            <span className="font-mono text-xs text-slate-400 uppercase tracking-widest block">
+            <span className="font-mono text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest block">
               CIRCULAR FEEDBACK
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-[0.15em] text-white uppercase">
+            <h2 className="font-display text-lg sm:text-xl font-extrabold tracking-[0.15em] text-white uppercase">
               THE CORE INTELLIGENCE LOOP
             </h2>
           </div>
@@ -332,26 +332,26 @@ export default function ArchitecturePage() {
               <div
                 key={item.title}
                 onClick={() => setActiveLoopStep(idx)}
-                className={`p-6 rounded-xl border cursor-pointer transition-all duration-300 flex flex-col justify-between ${
+                className={`p-5 rounded-xl border cursor-pointer transition-all duration-300 flex flex-col justify-between ${
                   isSelected
                     ? 'border-cyan-400 bg-cyan-950/40 shadow-[0_0_25px_rgba(0,229,255,0.25)]'
                     : 'border-slate-800 bg-[#040816]/80 hover:border-cyan-500/40'
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs text-cyan-400 font-bold">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-[11px] text-cyan-400 font-bold">
                       STAGE 0{idx + 1}
                     </span>
-                    <div className="w-8 h-8 rounded-lg border border-cyan-500/30 bg-cyan-950/50 flex items-center justify-center text-cyan-300">
-                      <Icon className="w-4 h-4" />
+                    <div className="w-7 h-7 rounded-lg border border-cyan-500/30 bg-cyan-950/50 flex items-center justify-center text-cyan-300">
+                      <Icon className="w-3.5 h-3.5" />
                     </div>
                   </div>
 
-                  <h3 className="font-display text-lg font-bold tracking-[0.16em] text-white mb-2">
+                  <h3 className="font-display text-sm sm:text-base font-bold tracking-[0.15em] text-white mb-1.5">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                  <p className="text-xs text-slate-300 font-sans leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -362,16 +362,16 @@ export default function ArchitecturePage() {
       </section>
 
       {/* SECTION 03: THE OS. MULTIPLE DOMAINS. */}
-      <section className="mb-28">
-        <div className="flex items-baseline gap-4 mb-8">
-          <span className="font-mono text-sm text-cyan-400 font-bold tracking-widest px-2.5 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
+      <section className="mb-20">
+        <div className="flex items-baseline gap-3 mb-6">
+          <span className="font-mono text-xs text-cyan-400 font-bold tracking-widest px-2 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
             03
           </span>
           <div>
-            <span className="font-mono text-xs text-slate-400 uppercase tracking-widest block">
+            <span className="font-mono text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest block">
               MULTI-DOMAIN COVERAGE
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-[0.18em] text-white uppercase">
+            <h2 className="font-display text-lg sm:text-xl font-extrabold tracking-[0.18em] text-white uppercase">
               ONE INTELLIGENCE LAYER. FOUR PHYSICAL DOMAINS.
             </h2>
           </div>
@@ -402,19 +402,19 @@ export default function ArchitecturePage() {
           ].map((d) => (
             <div
               key={d.code}
-              className="p-6 rounded-xl border border-slate-800 bg-[#040816] hover:border-cyan-400/50 transition-all flex flex-col justify-between"
+              className="p-5 rounded-xl border border-slate-800 bg-[#040816] hover:border-cyan-400/50 transition-all flex flex-col justify-between"
             >
               <div>
-                <span className="font-mono text-xs text-cyan-400 font-bold block mb-1">
+                <span className="font-mono text-[11px] text-cyan-400 font-bold block mb-1">
                   {d.code}
                 </span>
-                <h3 className="font-display text-lg font-bold text-white block mb-4">
+                <h3 className="font-display text-sm sm:text-base font-bold text-white block mb-3">
                   {d.sub}
                 </h3>
-                <ul className="space-y-2 font-sans text-xs text-slate-300">
+                <ul className="space-y-1.5 font-sans text-xs text-slate-300">
                   {d.bullets.map((b) => (
                     <li key={b} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                      <span className="w-1 h-1 rounded-full bg-cyan-400" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -426,22 +426,22 @@ export default function ArchitecturePage() {
       </section>
 
       {/* SECTION 04: BUILT FOR INTEGRATION */}
-      <section className="mb-28">
-        <div className="flex items-baseline gap-4 mb-6">
-          <span className="font-mono text-sm text-cyan-400 font-bold tracking-widest px-2.5 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
+      <section className="mb-20">
+        <div className="flex items-baseline gap-3 mb-5">
+          <span className="font-mono text-xs text-cyan-400 font-bold tracking-widest px-2 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
             04
           </span>
           <div>
-            <span className="font-mono text-xs text-slate-400 uppercase tracking-widest block">
+            <span className="font-mono text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest block">
               BUILT FOR INTEGRATION
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-[0.18em] text-white uppercase">
+            <h2 className="font-display text-lg sm:text-xl font-extrabold tracking-[0.18em] text-white uppercase">
               DESIGNED TO CONNECT THE SYSTEMS THAT ALREADY EXIST.
             </h2>
           </div>
         </div>
 
-        <p className="text-sm sm:text-base text-slate-300 font-sans max-w-3xl leading-relaxed mb-8">
+        <p className="text-xs sm:text-sm text-slate-300 font-sans max-w-2xl leading-relaxed mb-6">
           Antellay OS is designed as an integration and intelligence layer — allowing heterogeneous machines and systems to share data, context and intelligence through secure, permission-based interfaces.
         </p>
 
@@ -467,16 +467,17 @@ export default function ArchitecturePage() {
       </section>
 
       {/* SECTION 05: THE ANTELLAY OS STACK */}
-      <section className="mb-28">
-        <div className="flex items-baseline gap-4 mb-8">
-          <span className="font-mono text-sm text-cyan-400 font-bold tracking-widest px-2.5 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
+      {/* SECTION 05: SYSTEM PIPELINE */}
+      <section className="mb-20">
+        <div className="flex items-baseline gap-3 mb-6">
+          <span className="font-mono text-xs text-cyan-400 font-bold tracking-widest px-2 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40">
             05
           </span>
           <div>
-            <span className="font-mono text-xs text-slate-400 uppercase tracking-widest block">
+            <span className="font-mono text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest block">
               THE ANTELLAY OS STACK
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-[0.18em] text-white uppercase">
+            <h2 className="font-display text-lg sm:text-xl font-extrabold tracking-[0.18em] text-white uppercase">
               SYSTEM PIPELINE
             </h2>
           </div>
@@ -496,9 +497,9 @@ export default function ArchitecturePage() {
             ].map((node) => (
               <div
                 key={node.label}
-                className={`px-4 py-3.5 rounded-lg border font-mono text-xs tracking-wider text-center shrink-0 ${
+                className={`px-3 py-2 rounded-lg border font-mono text-[11px] tracking-wider text-center shrink-0 ${
                   node.isCore
-                    ? 'border-cyan-400 bg-cyan-950/70 text-cyan-300 font-bold shadow-[0_0_20px_rgba(0,229,255,0.35)]'
+                    ? 'border-cyan-400 bg-cyan-950/70 text-cyan-300 font-bold shadow-[0_0_15px_rgba(0,229,255,0.3)]'
                     : 'border-slate-800 bg-[#040816] text-slate-300'
                 }`}
               >
@@ -510,15 +511,15 @@ export default function ArchitecturePage() {
       </section>
 
       {/* SECTION 06: OUR PURPOSE */}
-      <section className="p-8 sm:p-12 rounded-2xl border border-cyan-500/30 bg-[#040818]/90 text-center mb-16">
-        <div className="inline-flex items-center gap-3 font-mono text-xs text-cyan-400 uppercase tracking-widest mb-4">
+      <section className="p-6 sm:p-10 rounded-2xl border border-cyan-500/30 bg-[#040818]/90 text-center mb-16">
+        <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs text-cyan-400 uppercase tracking-widest mb-3">
           <span>06</span>
           <span>OUR PURPOSE</span>
         </div>
-        <h3 className="font-display text-3xl sm:text-5xl font-extrabold tracking-[0.2em] text-white uppercase leading-tight">
+        <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-extrabold tracking-[0.18em] text-white uppercase leading-tight">
           THE WORLD WILL NOT BE POWERED BY ONE MACHINE.
         </h3>
-        <p className="font-mono text-xs text-cyan-300 tracking-widest mt-4 uppercase">
+        <p className="font-mono text-[11px] sm:text-xs text-cyan-300 tracking-widest mt-3 uppercase">
           IT WILL BE POWERED BY MILLIONS OF MACHINES WORKING TOGETHER.
         </p>
       </section>
@@ -528,16 +529,16 @@ export default function ArchitecturePage() {
           GATEWAY FLOW — Live Intelligence Terminal
           Sourced from 21st.dev: gateway-flow
           ═════════════════════════════════════════ */}
-      <section className="mb-20">
-        <div className="text-center mb-10">
-          <span className="font-mono text-xs tracking-[0.35em] text-cyan-400 uppercase border border-cyan-500/20 px-3 py-1 rounded-full bg-cyan-950/30 inline-flex items-center gap-2 mb-4">
+      <section className="mb-16">
+        <div className="text-center mb-8">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] text-cyan-400 uppercase border border-cyan-500/20 px-3 py-1 rounded-full bg-cyan-950/30 inline-flex items-center gap-2 mb-3">
             <Terminal className="w-3 h-3" />
             NEXUS GATEWAY — LIVE TERMINAL
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-[0.2em] text-white uppercase mb-3">
+          <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-[0.18em] text-white uppercase mb-2.5">
             INTELLIGENCE FLOW VISUALIZER
           </h2>
-          <p className="text-slate-400 text-sm max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
             Real-time Bezier data flow simulation — watch intelligence signals converge from all domains
             toward the Antellay OS core. Click anywhere in the terminal to trigger an expansion wave.
           </p>

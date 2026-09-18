@@ -10,7 +10,7 @@ export default function DomainsSection() {
       title: 'AIR',
       icon: Plane,
       tags: 'Autonomous Flight • Drones • Aviation',
-      image: '/assets/card_img_air.png',
+      image: '/assets/air_autonomy_fleet.png',
       description: 'Coordinating high-density unmanned aerial fleets, eVTOL urban mobility corridors, and autonomous defense aviation in real-time.',
     },
     {

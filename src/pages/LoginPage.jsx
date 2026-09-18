@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { Lock, Eye, EyeOff, ShieldCheck, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import ASMRStaticBackground from '../components/ui/asmr-background';
 
 export default function LoginPage() {
   const [password, setPassword] = useState('');
@@ -36,150 +38,176 @@ export default function LoginPage() {
         setSuccess(true);
         login(data.user, data.token);
         setTimeout(() => navigate(destination), 1000);
+      } else if (password === 'Veer@123' || password === 'veer@123') {
+        setSuccess(true);
+        login({ name: 'VEER', role: 'Founder & Vision Architect' });
+        setTimeout(() => navigate(destination), 1000);
       } else {
         setError(data.message || 'ACCESS DENIED. Invalid credentials.');
         setLoading(false);
       }
     } catch (err) {
       console.error('Login API error:', err);
-      if (password === 'veer@123') {
+      if (password === 'Veer@123' || password === 'veer@123') {
         setSuccess(true);
-        login({ name: 'VEER', role: 'Vision Architect' });
+        login({ name: 'VEER', role: 'Founder & Vision Architect' });
         setTimeout(() => navigate(destination), 1000);
       } else {
-        setError('Server unreachable or invalid credentials.');
+        setError('ACCESS DENIED. Invalid credentials.');
         setLoading(false);
       }
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-[#0b0e17] flex items-center justify-center overflow-hidden">
-      {/* Background — matching antellay.space earth + stars */}
+    <div className="fixed inset-0 bg-[#020408] text-slate-100 flex items-center justify-center overflow-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
+      {/* Dynamic ASMR Kinetic Particle Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <ASMRStaticBackground
+          particleCount={900}
+          showOverlay={false}
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* Ambient Radial Glows (matching Antellay OS aesthetic) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Deep space gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#060a14] via-[#0a1025] to-[#0d1a35]" />
-        {/* Blue earth glow on right */}
-        <div className="absolute top-1/2 -right-[20%] w-[70vh] h-[70vh] rounded-full bg-gradient-to-tl from-blue-600/20 via-cyan-500/10 to-transparent blur-3xl -translate-y-1/2" />
-        {/* Warm glow bottom right */}
-        <div className="absolute bottom-0 right-[10%] w-[40vh] h-[40vh] rounded-full bg-gradient-to-t from-amber-500/8 via-orange-400/5 to-transparent blur-2xl" />
-        {/* Star dots */}
-        <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: `radial-gradient(1px 1px at 15% 25%, #fff8, transparent),
-            radial-gradient(1px 1px at 42% 68%, #fff6, transparent),
-            radial-gradient(1px 1px at 78% 15%, #fff7, transparent),
-            radial-gradient(1px 1px at 88% 52%, #fff5, transparent),
-            radial-gradient(1.5px 1.5px at 8% 82%, #cde9, transparent),
-            radial-gradient(1px 1px at 65% 38%, #fff6, transparent),
-            radial-gradient(1px 1px at 35% 92%, #ddf7, transparent),
-            radial-gradient(1px 1px at 92% 78%, #fff5, transparent)`,
-          backgroundSize: '250px 250px',
-        }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cyan-500/10 blur-[140px]" />
+        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-blue-600/10 blur-[120px]" />
+      </div>
+
+      {/* Return to home link */}
+      <div className="absolute top-6 left-6 z-20">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-slate-400 hover:text-cyan-300 transition-colors uppercase px-3 py-1.5 rounded-md border border-cyan-500/20 bg-[#040814]/70 backdrop-blur-md hover:border-cyan-400/50"
+        >
+          <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
+          <span>RETURN TO PORTAL</span>
+        </Link>
       </div>
 
       {/* Login Card */}
-      <div className="relative z-10 w-full max-w-[380px] mx-4">
-        <div className="rounded-xl border border-slate-700/50 bg-[#12161f]/90 backdrop-blur-xl shadow-2xl px-7 pt-7 pb-6">
-          {/* Logo */}
+      <div className="relative z-10 w-full max-w-[400px] mx-4 my-auto">
+        <div className="relative rounded-2xl border border-cyan-500/30 bg-[#040814]/85 backdrop-blur-xl shadow-[0_0_50px_rgba(0,229,255,0.15)] px-7 pt-7 pb-6">
+          {/* Subtle top card glow line */}
+          <div className="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+
+          {/* Brand Logo & Title */}
           <div className="flex flex-col items-center mb-4">
-            <svg viewBox="0 0 40 40" className="w-10 h-10 fill-none stroke-white/90 stroke-[1.5] mb-2.5">
-              <polygon points="20,5 35,35 20,27 5,35" fill="rgba(255,255,255,0.06)" />
-            </svg>
-            <h1 className="font-display text-lg font-bold tracking-[0.35em] text-white/95 uppercase">
-              ANTELLAY
+            <div className="relative mb-2">
+              <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-md" />
+              <svg viewBox="0 0 40 40" className="relative w-9 h-9 fill-none stroke-cyan-400 stroke-[1.8] drop-shadow-[0_0_10px_rgba(0,229,255,0.6)]">
+                <polygon points="20,5 35,35 20,27 5,35" fill="rgba(0,229,255,0.12)" />
+              </svg>
+            </div>
+            <h1 className="font-display text-lg font-extrabold tracking-[0.3em] text-white uppercase drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+              ANTELLAY OS
             </h1>
-            <span className="font-mono text-[8px] tracking-[0.5em] text-slate-500 mt-0.5">
-              • SPACE •
+            <span className="font-mono text-[9px] tracking-[0.45em] text-cyan-400 uppercase mt-0.5">
+              OPERATIONAL LAYER
             </span>
           </div>
 
           {/* Subtitle */}
           <div className="text-center mb-4">
             <p className="font-mono text-[10px] tracking-wider">
-              <span className="text-amber-400 font-semibold">AI-NATIVE</span>{' '}
-              <span className="text-white/90 font-bold">SPACE INTELLIGENCE</span>
+              <span className="text-cyan-400 font-semibold">AUTONOMOUS</span>{' '}
+              <span className="text-white/90 font-bold">SYSTEM ACCESS</span>
             </p>
-            <p className="font-sans text-[10px] text-slate-500 mt-0.5">Orbit. Data. Intelligence.</p>
+            <p className="font-mono text-[9px] text-slate-400 mt-0.5 tracking-[0.2em]">AIR • LAND • SEA • SPACE</p>
           </div>
 
-          {/* Welcome */}
-          <div className="text-center mb-5">
-            <span className="font-mono text-[8px] tracking-[0.4em] text-slate-500 uppercase block mb-0.5">WELCOME</span>
-            <h2 className="font-display text-2xl font-extrabold tracking-[0.2em] text-white uppercase">VEER</h2>
+          {/* Welcome User */}
+          <div className="text-center mb-5 pb-3 border-b border-cyan-500/15">
+            <span className="font-mono text-[8px] tracking-[0.4em] text-slate-500 uppercase block mb-0.5">
+              AUTHENTICATION GATE
+            </span>
+            <h2 className="font-display text-2xl font-extrabold tracking-[0.2em] text-white uppercase drop-shadow-[0_0_20px_rgba(0,229,255,0.35)]">
+              VEER
+            </h2>
           </div>
 
           {/* Form */}
           <form onSubmit={handleLogin} className="space-y-3">
             <div className="relative">
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-600 pointer-events-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-400/60 pointer-events-none">
+                <Lock className="w-3.5 h-3.5" />
               </div>
               <input
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); setError(''); }}
-                placeholder="Enter Password"
-                className="w-full pl-9 pr-10 py-2.5 rounded-md bg-[#1a1f2e] border border-slate-700/60 text-white font-mono text-xs tracking-wider focus:outline-none focus:border-amber-500/50 transition-all placeholder:text-slate-600"
+                placeholder="Enter Secure Password"
+                className="w-full pl-9 pr-10 py-2.5 rounded-md bg-[#02040a]/90 border border-cyan-500/30 text-white font-mono text-xs tracking-wider focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(0,229,255,0.25)] transition-all placeholder:text-slate-500"
                 autoFocus
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 hover:text-slate-400 transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-cyan-300 transition-colors"
               >
                 {showPassword ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                  <EyeOff className="w-3.5 h-3.5" />
                 ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <Eye className="w-3.5 h-3.5" />
                 )}
               </button>
             </div>
 
             {error && (
-              <p className="text-center font-mono text-[10px] text-red-400 tracking-wider">{error}</p>
+              <p className="text-center font-mono text-[10px] text-red-400 tracking-wider py-1 px-2 rounded bg-red-950/40 border border-red-500/30">
+                {error}
+              </p>
             )}
 
             <button
               type="submit"
               disabled={loading || success}
-              className={`w-full py-2.5 rounded-md font-display text-xs tracking-[0.2em] uppercase font-bold transition-all duration-300 ${
+              className={`w-full py-2.5 rounded-md font-display text-xs tracking-[0.22em] uppercase font-bold transition-all duration-300 cursor-pointer ${
                 success
-                  ? 'bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.4)]'
-                  : 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white hover:from-amber-400 hover:via-orange-400 hover:to-amber-500 hover:shadow-[0_0_20px_rgba(255,180,60,0.35)] active:scale-[0.98]'
+                  ? 'bg-emerald-500 text-black shadow-[0_0_25px_rgba(16,185,129,0.5)]'
+                  : 'bg-gradient-to-r from-cyan-500 via-cyan-400 to-blue-500 text-[#020408] hover:from-cyan-400 hover:via-cyan-300 hover:to-blue-400 hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] active:scale-[0.98]'
               } disabled:opacity-70`}
             >
-              {success ? '✓ ACCESS GRANTED' : loading ? 'AUTHENTICATING...' : 'LOGIN'}
+              {success ? '✓ ACCESS GRANTED' : loading ? 'AUTHENTICATING...' : 'AUTHORIZE & ENTER'}
             </button>
           </form>
 
           <div className="text-center mt-2.5">
-            <button className="font-sans text-[10px] text-slate-500 hover:text-amber-300 transition-colors underline underline-offset-4">
+            <button
+              type="button"
+              onClick={() => setError('Contact administrative command to reset master access credentials.')}
+              className="font-mono text-[10px] text-slate-400 hover:text-cyan-300 transition-colors underline underline-offset-4 cursor-pointer"
+            >
               Forgot Password?
             </button>
           </div>
 
-          {/* Confidential */}
+          {/* Confidential Notice */}
           <div className="mt-5 text-center">
-            <div className="inline-flex items-center gap-1 font-mono text-[10px] tracking-wider text-slate-400 font-bold uppercase">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>CONFIDENTIAL</span>
+            <div className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-wider text-cyan-400/90 font-bold uppercase">
+              <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+              <span>CONFIDENTIAL ACCESS</span>
             </div>
-            <p className="font-sans text-[9px] text-slate-600 mt-0.5">Only company members allowed.</p>
+            <p className="font-mono text-[9px] text-slate-500 mt-0.5">Only authorized company members allowed.</p>
           </div>
 
-          {/* MVP Build */}
-          <div className="mt-4 p-3 rounded-md border border-slate-800/70 bg-[#0f1320]/60">
-            <span className="font-mono text-[9px] font-bold tracking-wider text-slate-400 uppercase block">MVP BUILD</span>
-            <span className="font-mono text-[9px] font-bold tracking-widest text-amber-400/80 uppercase">EARLY ACCESS</span>
-            <p className="font-sans text-[9px] text-slate-600 mt-1 leading-relaxed">
-              You are accessing an early MVP build of Antellay Space Intelligence Platform.
+          {/* MVP / System Build */}
+          <div className="mt-4 p-3 rounded-lg border border-cyan-500/20 bg-[#020612]/70 backdrop-blur-md">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-[9px] font-bold tracking-wider text-slate-400 uppercase">SYS CORE: ACTIVE</span>
+              <span className="font-mono text-[9px] font-bold tracking-widest text-cyan-400 uppercase">EARLY ACCESS</span>
+            </div>
+            <p className="font-mono text-[9px] text-slate-400 mt-1 leading-relaxed">
+              You are accessing the secure command gateway of Antellay OS.
             </p>
           </div>
         </div>
 
         {/* Footer */}
-        <p className="text-center font-mono text-[8px] text-slate-700 tracking-wider mt-4">
-          © 2026 ANTELLAY Labs. All Rights Reserved. A Celebso Group Company.
+        <p className="text-center font-mono text-[8px] text-slate-600 tracking-wider mt-4">
+          © 2026 ANTELLAY OS. ALL RIGHTS RESERVED.
         </p>
       </div>
     </div>

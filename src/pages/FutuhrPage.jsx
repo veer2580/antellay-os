@@ -18,39 +18,39 @@ export default function FutuhrPage() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="text-center max-w-4xl mx-auto mb-20">
-        <span className="font-mono text-xs sm:text-sm tracking-[0.35em] text-cyan-400 uppercase font-semibold border border-cyan-500/30 px-4 py-1 rounded-full bg-cyan-950/40 inline-block mb-4">
+      <div className="text-center max-w-4xl mx-auto mb-16">
+        <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] text-cyan-400 uppercase font-semibold border border-cyan-500/30 px-3.5 py-1 rounded-full bg-cyan-950/40 inline-block mb-3">
           PREDICTIVE INTELLIGENCE
         </span>
-        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-[0.25em] text-white uppercase mb-4 leading-tight">
+        <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-[0.25em] text-white uppercase mb-3 leading-tight">
           F U T U H R
         </h1>
-        <p className="font-mono text-xs sm:text-sm tracking-[0.4em] text-cyan-400 uppercase mb-4">
+        <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] text-cyan-400 uppercase mb-3">
           FUTURE PREDICTIVE INTELLIGENCE
         </p>
-        <p className="font-display text-sm tracking-[0.25em] text-slate-300 uppercase">
+        <p className="font-display text-xs tracking-[0.2em] text-slate-300 uppercase">
           SEE WHAT COMES NEXT.
         </p>
       </div>
 
       {/* Hero Image */}
-      <div className="relative w-full mb-20 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
+      <div className="relative w-full mb-16 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
         <img src="/assets/futuhr_hero.jpg" alt="Antellay OS — Predictive intelligence neural network" className="w-full h-auto object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* SECTION: 4 CONCEPTUAL PANELS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-28">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
         {/* Panel 1 */}
-        <div className="rounded-2xl border border-cyan-500/20 bg-[#050b18]/80 p-8 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
+        <div className="rounded-2xl border border-cyan-500/20 bg-[#050b18]/80 p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
           <div>
-            <span className="font-mono text-[10px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
+            <span className="font-mono text-[9px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
               TELEMETRY EMISSION
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-[0.15em] text-white mt-4 mb-3">
+            <h3 className="font-display text-base sm:text-lg font-bold tracking-[0.15em] text-white mt-3 mb-2">
               EVERYTHING LEAVES A SIGNAL.
             </h3>
-            <p className="text-sm font-mono text-cyan-300/80 tracking-wider">
+            <p className="text-xs font-mono text-cyan-300/80 tracking-wider">
               Markets. People. Environment. Technology. Systems.
             </p>
           </div>
@@ -70,22 +70,22 @@ export default function FutuhrPage() {
         </div>
 
         {/* Panel 2 */}
-        <div className="rounded-2xl border border-cyan-500/20 bg-[#050b18]/80 p-8 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
+        <div className="rounded-2xl border border-cyan-500/20 bg-[#050b18]/80 p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
           <div>
-            <span className="font-mono text-[10px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
+            <span className="font-mono text-[9px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
               STRUCTURAL CONVERGENCE
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-[0.15em] text-white mt-4 mb-3">
+            <h3 className="font-display text-base sm:text-lg font-bold tracking-[0.15em] text-white mt-3 mb-2">
               SIGNALS BECOME PATTERNS.
             </h3>
-            <p className="text-sm font-sans text-slate-300 leading-relaxed">
+            <p className="text-xs font-sans text-slate-300 leading-relaxed">
               Reveal what remains invisible. Multi-modal observations coalesce into observable vectors across physical operations.
             </p>
           </div>
-          <div className="mt-8 pt-6 border-t border-slate-800/80">
-            <div className="h-16 bg-[#02050e] rounded-lg border border-slate-800 relative flex items-center justify-around px-6">
+          <div className="mt-6 pt-5 border-t border-slate-800/80">
+            <div className="h-14 bg-[#02050e] rounded-lg border border-slate-800 relative flex items-center justify-around px-6">
               {[1, 2, 3, 4, 5].map((n) => (
-                <div key={n} className="w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_12px_#00e5ff] relative">
+                <div key={n} className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_12px_#00e5ff] relative">
                   <div className="absolute -inset-1 rounded-full bg-cyan-400/30 animate-ping" />
                 </div>
               ))}
@@ -94,41 +94,41 @@ export default function FutuhrPage() {
         </div>
 
         {/* Panel 3 */}
-        <div className="rounded-2xl border border-cyan-500/20 bg-[#050b18]/80 p-8 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
+        <div className="rounded-2xl border border-cyan-500/20 bg-[#050b18]/80 p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
           <div>
-            <span className="font-mono text-[10px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
+            <span className="font-mono text-[9px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
               SYNTHESIS PIPELINE
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-[0.15em] text-white mt-4 mb-3">
+            <h3 className="font-display text-base sm:text-lg font-bold tracking-[0.15em] text-white mt-3 mb-2">
               FROM PATTERNS TO INTELLIGENCE.
             </h3>
-            <div className="grid grid-cols-3 gap-2 text-center my-6">
-              <div className="p-3 rounded-lg border border-slate-800 bg-[#030712]">
-                <span className="text-[10px] text-cyan-400 block mb-1">:::</span>
-                <span className="font-mono text-xs text-white tracking-widest uppercase">SIGNAL</span>
+            <div className="grid grid-cols-3 gap-2 text-center my-4">
+              <div className="p-2.5 rounded-lg border border-slate-800 bg-[#030712]">
+                <span className="text-[10px] text-cyan-400 block mb-0.5">:::</span>
+                <span className="font-mono text-[11px] text-white tracking-widest uppercase">SIGNAL</span>
               </div>
-              <div className="p-3 rounded-lg border border-slate-800 bg-[#030712]">
-                <span className="text-[10px] text-cyan-400 block mb-1">◇</span>
-                <span className="font-mono text-xs text-white tracking-widest uppercase">PATTERN</span>
+              <div className="p-2.5 rounded-lg border border-slate-800 bg-[#030712]">
+                <span className="text-[10px] text-cyan-400 block mb-0.5">◇</span>
+                <span className="font-mono text-[11px] text-white tracking-widest uppercase">PATTERN</span>
               </div>
-              <div className="p-3 rounded-lg border border-cyan-500/40 bg-cyan-950/20 shadow-[0_0_15px_rgba(0,229,255,0.2)]">
-                <span className="text-xs text-cyan-300 block mb-1">◈</span>
-                <span className="font-mono text-xs text-cyan-300 font-bold tracking-widest uppercase">INTELLIGENCE</span>
+              <div className="p-2.5 rounded-lg border border-cyan-500/40 bg-cyan-950/20 shadow-[0_0_12px_rgba(0,229,255,0.2)]">
+                <span className="text-[11px] text-cyan-300 block mb-0.5">◈</span>
+                <span className="font-mono text-[11px] text-cyan-300 font-bold tracking-widest uppercase">INTELLIGENCE</span>
               </div>
             </div>
           </div>
-          <p className="text-xs font-mono text-slate-400 tracking-wide">
+          <p className="text-[11px] font-mono text-slate-400 tracking-wide">
             Dynamic contextual transformation from telemetry noise to actionable operational certainty.
           </p>
         </div>
 
         {/* Panel 4 */}
-        <div className="rounded-2xl border border-cyan-500/20 bg-[#050b18]/80 p-8 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
+        <div className="rounded-2xl border border-cyan-500/20 bg-[#050b18]/80 p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
           <div>
-            <span className="font-mono text-[10px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
+            <span className="font-mono text-[9px] text-cyan-400 tracking-widest uppercase border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-950/40">
               PROBABILISTIC DYNAMICS
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-[0.15em] text-white mt-4 mb-3">
+            <h3 className="font-display text-base sm:text-lg font-bold tracking-[0.15em] text-white mt-3 mb-2">
               THE FUTURE IS NOT ONE PATH.
             </h3>
             <div className="space-y-3 my-5">
@@ -247,43 +247,43 @@ export default function FutuhrPage() {
                 ))}
               </div>
 
-              <div className="border-t border-slate-800 pt-4 space-y-3">
+              <div className="border-t border-slate-800 pt-3 space-y-2">
                 <div>
-                  <span className="font-mono text-[10px] text-slate-400 tracking-wider block">
+                  <span className="font-mono text-[9px] text-slate-400 tracking-wider block">
                     PROBABILITY
                   </span>
-                  <span className="font-display text-4xl font-extrabold text-cyan-300">
+                  <span className="font-display text-2xl sm:text-3xl font-extrabold text-cyan-300">
                     {simProbability}%
                   </span>
                 </div>
 
                 <div>
-                  <span className="font-mono text-[10px] text-slate-400 tracking-wider block">
+                  <span className="font-mono text-[9px] text-slate-400 tracking-wider block">
                     CONFIDENCE
                   </span>
-                  <span className="font-mono text-sm font-bold text-emerald-400 tracking-widest">
+                  <span className="font-mono text-xs font-bold text-emerald-400 tracking-widest">
                     HIGH
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="p-3 rounded border border-slate-800 bg-[#020612]/60 text-center font-mono text-[10px] text-slate-500 uppercase tracking-widest">
+            <div className="p-2.5 rounded border border-slate-800 bg-[#020612]/60 text-center font-mono text-[9px] text-slate-500 uppercase tracking-widest">
               CONCEPTUAL FORECAST
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION: INTERACTIVE SCENARIO SIMULATOR (Added Feature) */}
-      <section className="mb-16 p-8 sm:p-10 rounded-2xl border border-slate-800 bg-[#030714]">
-        <div className="flex items-center gap-3 mb-6">
-          <Sliders className="w-5 h-5 text-cyan-400" />
-          <h3 className="font-display text-xl font-bold tracking-wider text-white uppercase">
+      {/* SECTION: INTERACTIVE SCENARIO SIMULATOR */}
+      <section className="mb-16 p-6 sm:p-8 rounded-2xl border border-slate-800 bg-[#030714]">
+        <div className="flex items-center gap-2.5 mb-4">
+          <Sliders className="w-4 h-4 text-cyan-400" />
+          <h3 className="font-display text-base sm:text-lg font-bold tracking-wider text-white uppercase">
             LIVE SIGNAL CALIBRATION SIMULATOR
           </h3>
         </div>
-        <p className="text-xs sm:text-sm text-slate-300 font-sans mb-8">
+        <p className="text-xs text-slate-300 font-sans mb-6">
           Adjust multi-domain signal intensities below to observe real-time recalculation of the composite probability forecast.
         </p>
 
@@ -337,20 +337,18 @@ export default function FutuhrPage() {
 
       {/* ═════════════════════════════════════
           KINETIC PARTICLE FIELD — Site-wide ASMR background
-          The diamond-star particles are now the global background.
-          This section frames and calls attention to the effect.
           ═════════════════════════════════════ */}
-      <section className="mb-20">
-        <div className="text-center mb-10">
-          <span className="font-mono text-xs tracking-[0.35em] text-cyan-400 uppercase border border-cyan-500/20 px-3 py-1 rounded-full bg-cyan-950/30 inline-flex items-center gap-2 mb-4">
+      <section className="mb-16">
+        <div className="text-center mb-8">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] text-cyan-400 uppercase border border-cyan-500/20 px-3 py-1 rounded-full bg-cyan-950/30 inline-flex items-center gap-2 mb-3">
             <Wind className="w-3 h-3" />
             ATMOSPHERIC KINETIC INTERFACE
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-[0.2em] text-white uppercase mb-3">
+          <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-[0.18em] text-white uppercase mb-2.5">
             PARTICLE FIELD SIMULATION
           </h2>
-          <p className="text-slate-400 text-sm max-w-2xl mx-auto leading-relaxed flex items-center justify-center gap-2">
-            <MousePointer className="w-4 h-4 text-cyan-500 flex-shrink-0" />
+          <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed flex items-center justify-center gap-2">
+            <MousePointer className="w-3.5 h-3.5 text-cyan-500 flex-shrink-0" />
             Move your cursor anywhere on the page to activate the magnetic vortex.
             Glass-shard particles throughout the background respond with friction-glow and orbital swirl physics.
           </p>

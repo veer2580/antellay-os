@@ -79,14 +79,14 @@ export default function ContactPage() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="text-center max-w-4xl mx-auto mb-20">
-        <span className="font-mono text-xs sm:text-sm tracking-[0.35em] text-cyan-400 uppercase font-semibold border border-cyan-500/30 px-4 py-1 rounded-full bg-cyan-950/40 inline-block mb-4">
+      <div className="text-center max-w-4xl mx-auto mb-16">
+        <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] text-cyan-400 uppercase font-semibold border border-cyan-500/30 px-3.5 py-1 rounded-full bg-cyan-950/40 inline-block mb-3">
           GET IN TOUCH
         </span>
-        <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-[0.16em] text-white uppercase mb-6 leading-tight">
+        <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-[0.16em] text-white uppercase mb-4 leading-tight">
           LET’S BUILD WHAT COMES NEXT.
         </h1>
-        <div className="space-y-2 font-sans text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        <div className="space-y-1.5 font-sans text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
           <p>We are building the intelligence layer for a connected autonomous world.</p>
           <p className="text-cyan-300">
             If you want to connect, collaborate, build or explore the future with Antellay OS, start a conversation.
@@ -95,51 +95,51 @@ export default function ContactPage() {
       </div>
 
       {/* SECTION: 2 DIRECT CONTACT CARDS */}
-      <section className="mb-20">
-        <div className="text-center mb-8">
-          <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-white uppercase">
+      <section className="mb-16">
+        <div className="text-center mb-6">
+          <h2 className="font-display text-lg sm:text-xl md:text-2xl font-extrabold tracking-[0.18em] text-white uppercase">
             START A CONVERSATION.
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {/* Card 1: Veer Singh */}
-          <div className="p-8 rounded-2xl border border-cyan-500/30 bg-[#040918]/80 text-center hover:border-cyan-400 transition-all flex flex-col items-center">
-            <div className="w-12 h-12 rounded-xl bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-4">
-              <svg viewBox="0 0 24 24" className="w-6 h-6 fill-none stroke-cyan-300 stroke-2">
+          <div className="p-6 sm:p-7 rounded-2xl border border-cyan-500/30 bg-[#040918]/80 text-center hover:border-cyan-400 transition-all flex flex-col items-center">
+            <div className="w-10 h-10 rounded-xl bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3">
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-cyan-300 stroke-2">
                 <polygon points="12,2 22,22 12,17 2,22" />
               </svg>
             </div>
-            <h3 className="font-display text-xl font-bold tracking-widest text-white mb-1">
+            <h3 className="font-display text-base sm:text-lg font-bold tracking-widest text-white mb-1">
               VEER SINGH
             </h3>
-            <p className="font-mono text-xs text-slate-400 mb-3 tracking-wider">
-              Founder & Vision Architect
+            <p className="font-mono text-xs text-slate-400 mb-2.5 tracking-wider">
+              Founder &amp; Vision Architect
             </p>
             <a
               href="mailto:veers2580jag@gmail.com"
-              className="font-mono text-sm text-cyan-300 hover:text-cyan-200 underline underline-offset-4 tracking-wider transition-colors"
+              className="font-mono text-xs sm:text-sm text-cyan-300 hover:text-cyan-200 underline underline-offset-4 tracking-wider transition-colors"
             >
               veers2580jag@gmail.com
             </a>
           </div>
 
           {/* Card 2: Antellay OS */}
-          <div className="p-8 rounded-2xl border border-cyan-500/30 bg-[#040918]/80 text-center hover:border-cyan-400 transition-all flex flex-col items-center">
-            <div className="w-12 h-12 rounded-xl bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-4">
-              <svg viewBox="0 0 24 24" className="w-6 h-6 fill-none stroke-cyan-300 stroke-2">
+          <div className="p-6 sm:p-7 rounded-2xl border border-cyan-500/30 bg-[#040918]/80 text-center hover:border-cyan-400 transition-all flex flex-col items-center">
+            <div className="w-10 h-10 rounded-xl bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3">
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-cyan-300 stroke-2">
                 <polygon points="12,2 22,22 12,17 2,22" />
               </svg>
             </div>
-            <h3 className="font-display text-xl font-bold tracking-widest text-white mb-1">
+            <h3 className="font-display text-base sm:text-lg font-bold tracking-widest text-white mb-1">
               ANTELLAY OS
             </h3>
-            <p className="font-mono text-xs text-slate-400 mb-3 tracking-wider">
+            <p className="font-mono text-xs text-slate-400 mb-2.5 tracking-wider">
               Founder / Business / Technology
             </p>
             <a
               href="mailto:veer@antellay.in"
-              className="font-mono text-sm text-cyan-300 hover:text-cyan-200 underline underline-offset-4 tracking-wider transition-colors"
+              className="font-mono text-xs sm:text-sm text-cyan-300 hover:text-cyan-200 underline underline-offset-4 tracking-wider transition-colors"
             >
               veer@antellay.in
             </a>
@@ -370,24 +370,24 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Monumental Closing Statement (From Page 10) */}
-      <section className="pt-16 border-t border-cyan-900/40 text-center flex flex-col items-center">
-        <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[0.2em] text-white uppercase mb-4 leading-tight">
+      {/* Monumental Closing Statement */}
+      <section className="pt-14 border-t border-cyan-900/40 text-center flex flex-col items-center">
+        <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-extrabold tracking-[0.18em] text-white uppercase mb-3 leading-tight">
           THE AUTONOMOUS WORLD IS COMING.
         </h2>
 
-        <p className="font-display text-lg sm:text-2xl tracking-[0.25em] text-cyan-300 uppercase font-semibold mb-8">
+        <p className="font-display text-sm sm:text-base tracking-[0.2em] text-cyan-300 uppercase font-semibold mb-6">
           LET’S BUILD IT TOGETHER.
         </p>
 
-        <div className="inline-flex flex-col items-center gap-2">
-          <span className="font-display text-2xl sm:text-3xl font-extrabold tracking-[0.3em] text-white">
+        <div className="inline-flex flex-col items-center gap-1.5">
+          <span className="font-display text-base sm:text-lg font-extrabold tracking-[0.25em] text-white">
             ANTELLAY OS
           </span>
-          <span className="font-mono text-xs tracking-[0.3em] text-cyan-400 uppercase">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] text-cyan-400 uppercase">
             THE OPERATING SYSTEM FOR THE AUTONOMOUS WORLD.
           </span>
-          <span className="inline-block mt-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/50 font-mono text-[10px] text-cyan-300 tracking-widest uppercase">
+          <span className="inline-block mt-2 px-3 py-0.5 rounded-full border border-cyan-500/30 bg-cyan-950/50 font-mono text-[9px] text-cyan-300 tracking-widest uppercase">
             COMING SOON.
           </span>
         </div>

@@ -39,46 +39,46 @@ export default function LockedPageGate({ children, pageName = 'SYSTEM SPECIFICAT
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
 
           {/* Official Lock Emblem */}
-          <div className="relative mx-auto w-16 h-16 rounded-2xl border border-cyan-500/50 bg-cyan-950/70 flex items-center justify-center text-cyan-400 shadow-[0_0_35px_rgba(0,229,255,0.35)] mb-6">
-            <Lock className="w-8 h-8 text-cyan-300 animate-pulse" />
+          <div className="relative mx-auto w-12 h-12 rounded-xl border border-cyan-500/50 bg-cyan-950/70 flex items-center justify-center text-cyan-400 shadow-[0_0_25px_rgba(0,229,255,0.3)] mb-4">
+            <Lock className="w-6 h-6 text-cyan-300 animate-pulse" />
           </div>
 
           {/* Standard Official Clearance Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 font-mono text-[10px] tracking-[0.25em] uppercase font-bold mb-4">
-            <ShieldAlert className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 font-mono text-[9px] tracking-[0.25em] uppercase font-bold mb-3">
+            <ShieldAlert className="w-3 h-3 text-cyan-400" />
             <span>CONFIDENTIAL // CLEARANCE LEVEL 4</span>
           </div>
 
           {/* Standard Official Heading */}
-          <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-[0.18em] text-white uppercase mb-2">
+          <h2 className="font-display text-lg sm:text-xl font-extrabold tracking-[0.16em] text-white uppercase mb-1.5">
             RESTRICTED ACCESS
           </h2>
 
-          <p className="font-mono text-xs text-cyan-300/90 tracking-wider mb-2">
+          <p className="font-mono text-[11px] text-cyan-300/90 tracking-wider mb-2">
             SECTION: {pageName.toUpperCase()}
           </p>
 
-          <p className="font-sans text-xs text-slate-300 leading-relaxed max-w-sm mx-auto mb-8">
+          <p className="font-sans text-[11px] text-slate-300 leading-relaxed max-w-xs mx-auto mb-6">
             This technical documentation contains proprietary Antellay OS machine intelligence and autonomous architecture. Please authenticate with authorized credentials to inspect this section.
           </p>
 
           {/* Direct CTA: Login to Unlock (Password entered on official Login portal) */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <Link
               to="/login"
               state={{ from: window.location.pathname }}
-              className="w-full py-3.5 rounded-md border border-cyan-400/80 bg-gradient-to-r from-cyan-950 via-cyan-900 to-cyan-950 hover:bg-cyan-500/20 text-cyan-200 hover:text-white font-display text-xs tracking-[0.25em] uppercase font-bold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_30px_rgba(0,229,255,0.4)]"
+              className="w-full py-3 rounded-md border border-cyan-400/80 bg-gradient-to-r from-cyan-950 via-cyan-900 to-cyan-950 hover:bg-cyan-500/20 text-cyan-200 hover:text-white font-display text-xs tracking-[0.25em] uppercase font-bold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_25px_rgba(0,229,255,0.4)]"
             >
-              <KeyRound className="w-4 h-4 text-cyan-400" />
+              <KeyRound className="w-3.5 h-3.5 text-cyan-400" />
               <span>AUTHENTICATE TO ACCESS</span>
             </Link>
 
             <div>
               <Link
                 to="/"
-                className="inline-flex items-center gap-1.5 text-slate-400 hover:text-cyan-300 font-mono text-xs tracking-wider transition-colors pt-1"
+                className="inline-flex items-center gap-1.5 text-slate-400 hover:text-cyan-300 font-mono text-[11px] tracking-wider transition-colors pt-1"
               >
-                <ArrowLeft className="w-3.5 h-3.5" />
+                <ArrowLeft className="w-3 h-3" />
                 <span>RETURN TO HOME</span>
               </Link>
             </div>

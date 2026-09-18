@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ASMRStaticBackground from './components/ui/asmr-background';
 import Navigation from './components/Navigation';
@@ -17,9 +17,56 @@ import ContactPage from './pages/ContactPage';
 import TermsPage from './pages/TermsPage';
 import LoginPage from './pages/LoginPage';
 
+import WhnxtLandingPage from './pages/WhnxtLandingPage';
+
 function AppLayout() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isLoginPage = location.pathname === '/login';
+
+  const [hasEntered, setHasEntered] = React.useState(() => {
+    if (typeof window === 'undefined') return false;
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('portal') === 'true' || window.location.pathname === '/portal') {
+      return false;
+    }
+    // If accessing any deep sub-page directly (/about, /mission, /architecture, etc.), enter directly
+    if (window.location.pathname !== '/' && window.location.pathname !== '/portal') {
+      return true;
+    }
+    return sessionStorage.getItem('whnxt_entered') === 'true';
+  });
+
+  React.useEffect(() => {
+    const handleOpenPortal = () => {
+      sessionStorage.removeItem('whnxt_entered');
+      setHasEntered(false);
+      navigate('/?portal=true');
+    };
+    window.addEventListener('open-whnxt-portal', handleOpenPortal);
+    return () => window.removeEventListener('open-whnxt-portal', handleOpenPortal);
+  }, [navigate]);
+
+  React.useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    if (urlParams.get('portal') === 'true' || location.pathname === '/portal') {
+      setHasEntered(false);
+    }
+  }, [location]);
+
+  const handleEnterWebsite = (targetRoute = '/') => {
+    sessionStorage.setItem('whnxt_entered', 'true');
+    setHasEntered(true);
+    if (targetRoute && targetRoute !== location.pathname) {
+      navigate(targetRoute);
+    } else if (location.search.includes('portal=true')) {
+      navigate('/');
+    }
+  };
+
+  if (!hasEntered) {
+    return <WhnxtLandingPage onEnter={handleEnterWebsite} />;
+  }
 
   if (isLoginPage) {
     return <LoginPage />;

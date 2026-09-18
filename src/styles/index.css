@@ -28,6 +28,11 @@
     overflow-x: clip;
   }
 
+  /* Standard Compact Typography Base (excluding whnxt landing page) */
+  :not([class*="whnxt-"]) h1:not([class*="whnxt-"]) {
+    letter-spacing: 0.15em;
+  }
+
   /* Futuristic Sleek Scrollbar */
   ::-webkit-scrollbar { width: 7px; }
   ::-webkit-scrollbar-track { background: #020408; }

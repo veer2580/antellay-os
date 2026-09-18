@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Lock, FileText, Download } from 'lucide-react';
+import { Lock, FileText } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Footer() {
@@ -82,16 +82,6 @@ export default function Footer() {
               <FileText className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
               <span>TERMS & CONDITIONS</span>
             </Link>
-            <a
-              href="/terms-and-conditions.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Open Official Terms PDF in new tab"
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-slate-700/80 bg-[#020714] text-slate-300 hover:text-cyan-300 hover:border-cyan-500/50 transition-all text-xs"
-            >
-              <Download className="w-3 h-3 text-cyan-400" />
-              <span>PDF</span>
-            </a>
           </div>
 
           <p className="text-slate-400">© 2026 Futuhr. All rights reserved.</p>

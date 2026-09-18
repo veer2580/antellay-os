@@ -44,8 +44,20 @@ export default function Navigation() {
           </div>
         </Link>
 
-        {/* Right Section: Auth Status / Login Action */}
-        <div className="flex items-center gap-3">
+        {/* Right Section: WHNXT Portal Toggle & Auth Status / Login Action */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* Return to WHNXT Cosmic Gateway */}
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event('open-whnxt-portal'))}
+            title="Return to WHNXT.TODAY Cosmic Gateway"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-cyan-500/30 bg-cyan-950/30 hover:bg-cyan-950/60 hover:border-cyan-400 text-cyan-300 hover:text-white font-mono text-xs tracking-wider transition-all duration-200"
+          >
+            <span className="text-[10px] text-cyan-400">×</span>
+            <span className="font-bold">₸.₸</span>
+            <span className="text-[10px] text-cyan-400/70 hidden md:inline ml-0.5">PORTAL</span>
+          </button>
+
           {isAuthenticated ? (
             <div className="flex items-center gap-3">
               {/* User Badge */}

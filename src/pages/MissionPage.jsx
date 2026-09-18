@@ -109,41 +109,41 @@ export default function MissionPage() {
   return (
     <div className="relative min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Page Header */}
-      <div className="text-center max-w-4xl mx-auto mb-20">
-        <span className="font-mono text-xs sm:text-sm tracking-[0.35em] text-cyan-400 uppercase font-semibold border border-cyan-500/30 px-4 py-1 rounded-full bg-cyan-950/40 inline-block mb-4">
+      <div className="text-center max-w-4xl mx-auto mb-16">
+        <span className="font-mono text-[10px] sm:text-xs tracking-[0.3em] text-cyan-400 uppercase font-semibold border border-cyan-500/30 px-3.5 py-1 rounded-full bg-cyan-950/40 inline-block mb-3">
           OUR MISSION
         </span>
-        <h1 className="font-display text-4xl sm:text-6xl font-extrabold tracking-[0.18em] text-white uppercase mb-6 leading-tight">
+        <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-[0.18em] text-white uppercase mb-4 leading-tight">
           BUILDING THE INTELLIGENCE LAYER FOR AN AUTONOMOUS WORLD.
         </h1>
-        <p className="font-sans text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">
+        <p className="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
           Our mission is to connect machines, systems and intelligence across the physical world — enabling them to understand, predict and operate together.
         </p>
 
         {/* Tactical Domain Tags */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-8 font-mono text-xs text-slate-300">
-          <span className="px-3 py-1 rounded bg-[#040916] border border-cyan-500/30 text-cyan-300">SPACE</span>
-          <span className="px-3 py-1 rounded bg-[#040916] border border-cyan-500/30 text-cyan-300">AIR</span>
-          <span className="px-3 py-1 rounded bg-[#040916] border border-cyan-500/30 text-cyan-300">LAND</span>
-          <span className="px-3 py-1 rounded bg-[#040916] border border-cyan-500/30 text-cyan-300">SEA</span>
-          <span className="px-3 py-1 rounded bg-[#040916] border border-slate-800">LOGISTICS • INDUSTRIAL SYSTEMS</span>
-          <span className="px-3 py-1 rounded bg-[#040916] border border-slate-800">RADAR • SENSORS • GIS</span>
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-6 font-mono text-[11px] text-slate-300">
+          <span className="px-2.5 py-0.5 rounded bg-[#040916] border border-cyan-500/30 text-cyan-300">SPACE</span>
+          <span className="px-2.5 py-0.5 rounded bg-[#040916] border border-cyan-500/30 text-cyan-300">AIR</span>
+          <span className="px-2.5 py-0.5 rounded bg-[#040916] border border-cyan-500/30 text-cyan-300">LAND</span>
+          <span className="px-2.5 py-0.5 rounded bg-[#040916] border border-cyan-500/30 text-cyan-300">SEA</span>
+          <span className="px-2.5 py-0.5 rounded bg-[#040916] border border-slate-800">LOGISTICS • INDUSTRIAL SYSTEMS</span>
+          <span className="px-2.5 py-0.5 rounded bg-[#040916] border border-slate-800">RADAR • SENSORS • GIS</span>
         </div>
       </div>
 
       {/* Hero Image */}
-      <div className="relative w-full mb-20 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
+      <div className="relative w-full mb-16 overflow-hidden border-y border-cyan-500/20 shadow-[0_0_40px_rgba(0,229,255,0.08)]">
         <img src="/assets/mission_hero.jpg" alt="Antellay OS — Mission control center" className="w-full h-auto object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* SECTION: TURNING FRAGMENTED SYSTEMS INTO ONE INTELLIGENT ECOSYSTEM */}
-      <section className="mb-28 p-8 sm:p-12 rounded-2xl border border-cyan-500/25 bg-[#040816]/80 backdrop-blur-md text-center shadow-[0_0_40px_rgba(0,229,255,0.1)]">
-        <h2 className="font-display text-2xl sm:text-4xl font-extrabold tracking-[0.18em] text-white uppercase mb-6">
+      <section className="mb-20 p-6 sm:p-10 rounded-2xl border border-cyan-500/25 bg-[#040816]/80 backdrop-blur-md text-center shadow-[0_0_35px_rgba(0,229,255,0.08)]">
+        <h2 className="font-display text-lg sm:text-xl md:text-2xl font-extrabold tracking-[0.18em] text-white uppercase mb-4">
           TURNING FRAGMENTED SYSTEMS INTO ONE INTELLIGENT ECOSYSTEM.
         </h2>
 
-        <div className="space-y-4 max-w-3xl mx-auto text-slate-300 font-sans text-sm sm:text-base leading-relaxed">
+        <div className="space-y-3 max-w-2xl mx-auto text-slate-300 font-sans text-xs sm:text-sm leading-relaxed">
           <p>
             Today, machines often operate inside isolated platforms, protocols and systems.
           </p>
@@ -154,9 +154,9 @@ export default function MissionPage() {
       </section>
 
       {/* SECTION: 3 MISSION CAPABILITIES (01 CONNECT, 02 UNDERSTAND, 03 ACT) */}
-      <section className="mb-28">
-        <div className="text-center mb-14">
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-[0.18em] text-white uppercase">
+      <section className="mb-20">
+        <div className="text-center mb-10">
+          <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-[0.18em] text-white uppercase">
             THREE CORE CAPABILITIES
           </h2>
         </div>
@@ -167,43 +167,43 @@ export default function MissionPage() {
             return (
               <div
                 key={card.num}
-                className="rounded-2xl border border-slate-800 bg-[#040916]/80 p-8 hover:border-cyan-400/60 hover:bg-[#06122a] hover:shadow-[0_0_30px_rgba(0,229,255,0.2)] transition-all duration-300 flex flex-col justify-between"
+                className="rounded-2xl border border-slate-800 bg-[#040916]/80 p-6 sm:p-7 hover:border-cyan-400/60 hover:bg-[#06122a] hover:shadow-[0_0_25px_rgba(0,229,255,0.2)] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-3xl font-extrabold text-cyan-400">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-xl sm:text-2xl font-extrabold text-cyan-400">
                       {card.num}
                     </span>
-                    <div className="w-11 h-11 rounded-xl border border-cyan-500/30 bg-cyan-950/50 flex items-center justify-center text-cyan-400">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-9 h-9 rounded-lg border border-cyan-500/30 bg-cyan-950/50 flex items-center justify-center text-cyan-400">
+                      <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <span className="font-mono text-[10px] tracking-widest text-slate-400 uppercase block mb-2">
+                  <span className="font-mono text-[9px] tracking-widest text-slate-400 uppercase block mb-1.5">
                     {card.tag}
                   </span>
 
-                  <h3 className="font-display text-2xl font-bold tracking-[0.16em] text-white mb-4">
+                  <h3 className="font-display text-base sm:text-lg font-bold tracking-[0.15em] text-white mb-2.5">
                     {card.title}
                   </h3>
 
-                  <p className="text-sm text-slate-300 font-sans leading-relaxed mb-6">
+                  <p className="text-xs text-slate-300 font-sans leading-relaxed mb-4">
                     {card.desc}
                   </p>
 
-                  <div className="border-t border-slate-800 pt-4 space-y-2 font-mono text-xs text-cyan-300/90">
+                  <div className="border-t border-slate-800 pt-3 space-y-1.5 font-mono text-[11px] text-cyan-300/90">
                     {card.protocols.map((p) => (
                       <div key={p} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                        <span className="w-1 h-1 rounded-full bg-cyan-400" />
                         <span>{p}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between font-mono text-[11px] text-emerald-400">
+                <div className="mt-6 pt-3 border-t border-slate-800 flex items-center justify-between font-mono text-[10px] text-emerald-400">
                   <span>SUBSYSTEM: READY</span>
-                  <Check className="w-4 h-4" />
+                  <Check className="w-3.5 h-3.5" />
                 </div>
               </div>
             );
@@ -212,21 +212,21 @@ export default function MissionPage() {
       </section>
 
       {/* SECTION: OUR MISSION FLOW (Interactive 7-Stage Pipeline) */}
-      <section className="mb-28 p-8 sm:p-12 rounded-2xl border border-cyan-500/30 bg-[#040816]/90 backdrop-blur-md">
-        <div className="text-center mb-12">
-          <span className="font-mono text-xs text-cyan-400 tracking-widest uppercase block mb-2">
+      <section className="mb-20 p-6 sm:p-10 rounded-2xl border border-cyan-500/30 bg-[#040816]/90 backdrop-blur-md">
+        <div className="text-center mb-10">
+          <span className="font-mono text-[10px] sm:text-xs text-cyan-400 tracking-widest uppercase block mb-1.5">
             END-TO-END CYCLE
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-[0.18em] text-white uppercase">
+          <h2 className="font-display text-xl sm:text-2xl font-extrabold tracking-[0.18em] text-white uppercase">
             OUR MISSION FLOW
           </h2>
-          <p className="font-sans text-sm text-slate-400 mt-2">
+          <p className="font-sans text-xs text-slate-400 mt-1.5">
             Click any stage below to inspect how telemetry converts into authorized action.
           </p>
         </div>
 
         {/* 7 Interactive Stage Buttons */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 mb-6">
           {missionFlowSteps.map((step) => {
             const IconComponent = step.icon;
             const isSelected = activeFlowStep === step.id;
@@ -234,17 +234,17 @@ export default function MissionPage() {
               <button
                 key={step.name}
                 onClick={() => setActiveFlowStep(step.id)}
-                className={`p-4 rounded-xl border text-center transition-all flex flex-col items-center justify-between ${
+                className={`p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-between ${
                   isSelected
                     ? 'border-cyan-400 bg-cyan-950/60 shadow-[0_0_20px_rgba(0,229,255,0.3)]'
                     : 'border-slate-800 bg-[#02050e] hover:border-cyan-500/40'
                 }`}
               >
-                <div className="w-9 h-9 rounded-full border border-cyan-500/30 bg-cyan-950/40 flex items-center justify-center text-cyan-400 mb-2">
-                  <IconComponent className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-full border border-cyan-500/30 bg-cyan-950/40 flex items-center justify-center text-cyan-400 mb-1.5">
+                  <IconComponent className="w-3.5 h-3.5" />
                 </div>
-                <span className="font-mono text-[9px] text-cyan-400 font-bold block">0{step.id + 1}</span>
-                <span className="font-display text-xs font-bold text-white tracking-wider block mt-0.5">
+                <span className="font-mono text-[8px] text-cyan-400 font-bold block">0{step.id + 1}</span>
+                <span className="font-display text-[11px] font-bold text-white tracking-wider block mt-0.5">
                   {step.name}
                 </span>
               </button>
@@ -253,20 +253,20 @@ export default function MissionPage() {
         </div>
 
         {/* Detailed Inspector for Selected Step */}
-        <div className="p-6 rounded-xl border border-cyan-500/20 bg-[#02050f] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <span className="font-mono text-xs text-cyan-400 font-semibold uppercase">
+        <div className="p-5 rounded-xl border border-cyan-500/20 bg-[#02050f] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1.5 max-w-xl">
+            <span className="font-mono text-[11px] text-cyan-400 font-semibold uppercase">
               SELECTED NODE: {missionFlowSteps[activeFlowStep].name} (0{activeFlowStep + 1}/07)
             </span>
-            <h4 className="font-display text-xl font-bold text-white tracking-wide">
+            <h4 className="font-display text-base sm:text-lg font-bold text-white tracking-wide">
               {missionFlowSteps[activeFlowStep].short}
             </h4>
-            <p className="text-sm text-slate-300 font-sans leading-relaxed">
+            <p className="text-xs text-slate-300 font-sans leading-relaxed">
               {missionFlowSteps[activeFlowStep].desc}
             </p>
           </div>
 
-          <div className="font-mono text-xs text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 px-4 py-2 rounded self-start sm:self-center">
+          <div className="font-mono text-[11px] text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 px-3 py-1.5 rounded self-start sm:self-center">
             FLOW VELOCITY: REAL-TIME
           </div>
         </div>
@@ -274,8 +274,8 @@ export default function MissionPage() {
 
       {/* SECTION: REAL-WORLD MULTI-DOMAIN OPERATIONAL SCENARIOS */}
       <section className="mb-16">
-        <div className="text-center mb-10">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-[0.18em] text-white uppercase">
+        <div className="text-center mb-8">
+          <h2 className="font-display text-lg sm:text-xl md:text-2xl font-bold tracking-[0.18em] text-white uppercase">
             OPERATIONAL DEPLOYMENT SCENARIOS
           </h2>
         </div>
